@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "start": "node esbuild.js start",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint src --ext .ts",
     "test": "ts-mocha test/*.ts"
   },
   "repository": {

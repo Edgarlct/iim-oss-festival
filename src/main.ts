@@ -24,7 +24,7 @@ export class Festival {
 
 
   public static async getFestivals(params:ISearchParams) {
-    let searchParams:string[] = [];
+    const searchParams:string[] = [];
 
     if (params.month) {
       searchParams.push(this.getMonthParam(params.month));
@@ -46,11 +46,5 @@ export class Festival {
   }
 
 }
-
-const main = async () => {
-  const f = await Festival.getFestivals({month: 14});
-  console.log(f);
-}
-main();
 
 

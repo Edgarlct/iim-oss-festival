@@ -21,6 +21,7 @@ require('esbuild').build({
         platform: 'node',
         bundle: true,
         sourcemap: true,
+        tsconfig: 'tsconfig.json',
     })
     .catch(e => {
         console.log("Error on rebuild ! ");
