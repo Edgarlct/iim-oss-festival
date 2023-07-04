@@ -1,0 +1,37 @@
+{
+  "name": "edgar-iim-festival",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "node esbuild.js start",
+    "lint": "eslint . --ext .ts",
+    "test": "ts-mocha test/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edgarlct/iim-oss-festival.git"
+  },
+  "author": "Edgar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Edgarlct/iim-oss-festival/issues"
+  },
+  "homepage": "https://github.com/Edgarlct/iim-oss-festival#readme",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/chai": "^4.3.5",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.44.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "esbuild": "^0.18.11"
+  }
+}
