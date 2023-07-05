@@ -3,4 +3,5 @@ export interface ISearchParams {
   department?: number;
   rows?: number;
   start?: number;
+  postalCode?: string;
 }

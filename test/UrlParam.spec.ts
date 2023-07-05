@@ -27,4 +27,15 @@ describe("UrlParamTest", () => {
       assert.throws(() => Festival.getDepartmentParam(979), Error);
     });
   })
+
+  describe("getPostalCodeParam", () => {
+    it("should return the correct param", () => {
+      assert.equal(Festival.getPostalCodeParam("75000"), "refine.code_postal=75000");
+    });
+
+    it("should throw an error if the postal code is invalid", () => {
+      assert.throws(() => Festival.getPostalCodeParam("7500"), Error);
+      assert.throws(() => Festival.getPostalCodeParam("750000"), Error);
+    });
+  });
 });

@@ -22,6 +22,12 @@ export class Festival {
     return encodeURI(`refine.departement=${department}`);
   }
 
+  public static getPostalCodeParam(postalCode:string):string
+  {
+    if (postalCode.length !== 5) throw new Error("Invalid postal code");
+
+    return encodeURI(`refine.code_postal=${postalCode}`);
+  }
 
   public static async getFestivals(params:ISearchParams) {
     const searchParams:string[] = [];
@@ -40,6 +46,10 @@ export class Festival {
 
     if (params.start && params.start > 0) {
       searchParams.push(`start=${params.start}`);
+    }
+
+    if (params.postalCode) {
+      searchParams.push(this.getPostalCodeParam(params.postalCode));
     }
 
     return await sendRequest(searchParams.join("&"));
