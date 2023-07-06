@@ -19,6 +19,8 @@ jobs:
         run: npm run lint
       - name: 'Run tests'
         run: npm test
+      - name: 'run build'
+        run: npm run build
       - name: 'publish'
         uses: JS-DevTools/npm-publish@v2
         with:

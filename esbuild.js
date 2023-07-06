@@ -7,7 +7,7 @@ let server,
         // console.log("Re-building.");
         if (isDev) {
             if (server) server.kill('SIGINT')
-            let params = ['dist/main.js'];
+            let params = ['dist/index.js'];
             if(isDev) {
                 params.push('--inspect')
             }
@@ -16,7 +16,7 @@ let server,
     }
 
 require('esbuild').build({
-        entryPoints: ['src/main.ts'],
+        entryPoints: ['src/index.ts'],
         outdir: 'dist',
         platform: 'node',
         bundle: true,

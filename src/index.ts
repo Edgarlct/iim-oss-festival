@@ -1,35 +1,35 @@
 import {ISearchParams} from "./interfaces/ISearchParams";
 import {sendRequest} from "./Tools/Api";
 
-class Festival {
+export class Festival {
 
-  months = [
+  private static months = [
     "01 (janvier)", "02 (février)", "03 (mars)", "04 (avril)", "05 (mai)", "06 (juin)", "07 (juillet)", "08 (août)",
     "09 (septembre)", "10 (octobre)", "11 (novembre)", "12 (décembre)"
   ];
 
-  getMonthParam(month:number):string
+  public static getMonthParam(month:number):string
   {
     if (month < 1 || month > 12) throw new Error("Invalid month");
 
     return encodeURI(`refine.mois_habituel_de_debut=${this.months[month - 1]}`);
   }
 
-  getDepartmentParam(department:number):string
+  public static getDepartmentParam(department:number):string
   {
     if (department < 1 || (department > 95 && ![971, 972, 973, 974, 976].includes(department))) throw new Error("Invalid department");
 
     return encodeURI(`refine.departement=${department}`);
   }
 
-  getPostalCodeParam(postalCode:string):string
+  public static getPostalCodeParam(postalCode:string):string
   {
     if (postalCode.length !== 5) throw new Error("Invalid postal code");
 
     return encodeURI(`refine.code_postal=${postalCode}`);
   }
 
-  async getFestivals(params:ISearchParams) {
+  public static async getFestivals(params:ISearchParams) {
     const searchParams:string[] = [];
 
     if (params.month) {
@@ -56,5 +56,3 @@ class Festival {
   }
 
 }
-
-module.exports = Festival;
