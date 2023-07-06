@@ -57,5 +57,4 @@ class Festival {
 
 }
 
-
 module.exports = Festival;
