@@ -1,7 +1,7 @@
 import {ISearchParams} from "./interfaces/ISearchParams";
 import {sendRequest} from "./Tools/Api";
 
-export class Festival {
+class Festival {
 
   private static months = [
     "01 (janvier)", "02 (février)", "03 (mars)", "04 (avril)", "05 (mai)", "06 (juin)", "07 (juillet)", "08 (août)",
@@ -58,3 +58,4 @@ export class Festival {
 }
 
 
+module.exports = Festival;
