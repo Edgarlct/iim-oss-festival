@@ -3,33 +3,33 @@ import {sendRequest} from "./Tools/Api";
 
 class Festival {
 
-  private static months = [
+  months = [
     "01 (janvier)", "02 (février)", "03 (mars)", "04 (avril)", "05 (mai)", "06 (juin)", "07 (juillet)", "08 (août)",
     "09 (septembre)", "10 (octobre)", "11 (novembre)", "12 (décembre)"
   ];
 
-  public static getMonthParam(month:number):string
+  getMonthParam(month:number):string
   {
     if (month < 1 || month > 12) throw new Error("Invalid month");
 
     return encodeURI(`refine.mois_habituel_de_debut=${this.months[month - 1]}`);
   }
 
-  public static getDepartmentParam(department:number):string
+  getDepartmentParam(department:number):string
   {
     if (department < 1 || (department > 95 && ![971, 972, 973, 974, 976].includes(department))) throw new Error("Invalid department");
 
     return encodeURI(`refine.departement=${department}`);
   }
 
-  public static getPostalCodeParam(postalCode:string):string
+  getPostalCodeParam(postalCode:string):string
   {
     if (postalCode.length !== 5) throw new Error("Invalid postal code");
 
     return encodeURI(`refine.code_postal=${postalCode}`);
   }
 
-  public static async getFestivals(params:ISearchParams) {
+  async getFestivals(params:ISearchParams) {
     const searchParams:string[] = [];
 
     if (params.month) {
